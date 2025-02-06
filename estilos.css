@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+html {
+    background-image: url(./img/fondo-circulos.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*height: 100vh;*/
+    padding: 10px;
+}
+
+.texto {
+    font-family: "Josefin Sans", serif;
+    font-size: calc(15px + 1.5vh);
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+.titulo-principal {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+
+    font-family: "Kanit", serif;
+    font-size: calc(20px + 3vh);
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0) 20%, #7de0e7 50%, rgba(0, 0, 0, 0) 80%) 1;
+}
+
+
+.caja-principal {
+    max-width: 1000px;
+    height: 700px;
+    background: linear-gradient(to bottom, #0b0652 10%, #160e91 50%,#0b0652 90%);
+    border-radius: 50px;
+    border: 4px solid #7d84e7;
+    box-shadow: 0px 0px 15px #7d84e7;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 2fr 2fr;
+    gap: 15px;
+    padding: 15px;
+    grid-template-areas:
+        "foto-perfil info-general ubicacion"
+        "foto-perfil curriculum contacto"
+        "foto-perfil aptitudes aptitudes"
+        "proyectos proyectos proyectos";
+}
+
+.contenedor {
+    border: 3px solid #7de0e7;
+    border-radius: 30px;
+    background: rgba(0, 0, 136, 0.8);
+    box-shadow: 0px 0px 10px #7de0e7;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.contenedor-txt-botones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.foto-perfil {
+    grid-area: foto-perfil;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-general {
+    grid-area: info-general;
+}
+
+.icono-botones {
+    color: #fff;
+    font-size: calc(30px + 1vh);
+}
+
+.icono-botones-grande {
+    color: #fff;
+    font-size: calc(40px + 1vh);
+}
+
+.grupo-botones-grandes__titulo-icono {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+
+    border-right: 3px solid;
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, #7de0e7 30%, #7de0e7 70%, rgba(0, 0, 0, 0) 95%) 1;
+
+    height: 100%;
+    width: 25%;
+}
+
+.grupo-aptitudes__icono-texto {
+    height: auto;
+    width: 75%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.aptitud__item-icono-texto {
+    height: 50%;
+    width: 20%;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono-aptitud {
+    height: auto;
+    width: 100%;
+    /*filter: drop-shadow(0 0 5px #fff);*/
+}
+
+.texto-aptitud {
+    font-family: "Oswald", serif;
+    color: #fff;
+    font-size: calc(10px + 0.5vw);
+    text-align: center;
+}
+
+.ubicacion {
+    grid-area: ubicacion;
+}
+
+.curriculum {
+    grid-area: curriculum;
+    transition: all .5s ease;
+}
+
+.curriculum:hover {
+    box-shadow: 0px 0px 10px #fff;
+    border-color: #fff;
+    background-color: #160e91;
+}
+
+.contacto {
+    grid-area: contacto;
+    transition: all .5s ease;
+}
+
+.contacto:hover {
+    box-shadow: 0px 0px 10px #fff;
+    border-color: #fff;
+    background-color: #160e91;
+}
+
+.aptitudes {
+    grid-area: aptitudes;
+}
+
+.proyectos {
+    grid-area: proyectos;
+    padding: 15px;
+}
+
+.grupo-proyectos {
+    width: 75%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.proyecto {
+    position: relative;
+    height: 100px;
+    padding: 10px 20px;
+    overflow: hidden;
+
+    border-radius: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0px 0px 10px #fff;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all .3s;
+}
+
+.proyecto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 5px 5px rgba(255, 255, 255, 1),
+                inset 0 -5px 5px rgba(255, 255, 255, 1);
+    transition: all .3s;
+}
+
+.proyecto:hover {
+    box-shadow: 0px 0px 15px #fff;
+                
+}
+
+.proyecto:hover::before {
+    box-shadow: inset 0 8px 5px rgba(255, 255, 255, 1),
+                inset 0 -8px 5px rgba(255, 255, 255, 1);
+}
+
+.GTA {
+    background-image: url('./img/proyectos/proyecto-gta.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.proyecto-titulo {
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    z-index: 1;
+    font-family: "Oswald", serif;
+}
+
+/* ################## FICHA CONTACTO ##############*/
+
+.contacto__contenedor-principal {
+    max-width: 1000px;
+    height: auto;
+    background: linear-gradient(to bottom, #0b0652 10%, #160e91 50%,#0b0652 90%);
+    border-radius: 50px;
+    border: 4px solid #7d84e7;
+    box-shadow: 0px 0px 15px #7d84e7;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+.contacto__contenedor-interno {
+    gap: 20px;
+    padding: 20px;
+}
+
+.contacto__titulo-principal {
+    width: 100%;
+    font-size: calc(25px + 1vh);
+    text-align: center;
+    color: #fff;
+    font-family: "Josefin Sans", serif;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0) 20%, #7de0e7 50%, rgba(0, 0, 0, 0) 80%) 1;
+}
+
+.contacto__link {
+    transition: all .3s;
+}
+
+.contacto__link:hover {
+    color:#7de0e7;
+    filter: drop-shadow(0 0 5px #7de0e7);
+}
+
+.contacto__boton-volver {
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* ################## MEDIA QUERIES ##############*/
+
+@media only screen and (max-width:850px) {
+    .caja-principal {
+        height: auto;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 1fr 2fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        grid-template-areas:
+            "foto-perfil info-general"
+            "foto-perfil ubicacion"
+            "foto-perfil curriculum"
+            "foto-perfil contacto"
+            "aptitudes aptitudes"
+            "proyectos proyectos";
+    }
+
+    .aptitud__item-icono-texto {
+        height: 120px;
+        width: auto;
+
+    }
+
+    .icono-aptitud {
+        height: 80%;
+    }
+
+}
+
+@media only screen and (max-width:580px) {
+    .caja-principal {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+    .foto-perfil {
+        grid-area: foto-perfil;
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .aptitudes {
+        flex-direction: column;
+    }
+
+    .proyectos {
+        flex-direction: column;
+    }
+
+    .grupo-botones-grandes__titulo-icono {
+        width: 100%;
+        padding: 5px;
+        flex-direction: row-reverse;
+        border-right: none;
+        border-bottom: 3px solid;
+        border-image: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, #7de0e7 30%, #7de0e7 70%, rgba(0, 0, 0, 0) 95%) 1;
+    }
+
+    .contacto__contenedor-interno {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .contacto__contenedor-principal {
+        padding: 10px;
+        gap: 10px;
+    }
+}
