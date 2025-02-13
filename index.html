@@ -17,10 +17,11 @@
 
             <link rel="icon" type="image/x-icon" href="./img/portfolio-icono-pag.ico">
         </head>
-        <body>
-            <h1 class="texto titulo-principal">Guido Almeida</h1>
-            <div class="caja-principal">
-                <img class="contenedor foto-perfil" src="./img/foto-perfil.png">
+        <body class="body" id="body">
+            <h1 class="texto titulo-principal" id="titulo-principal">Guido Almeida</h1>
+            <!--CAJA PRINCIPAL-->
+            <div class="caja-principal" id="caja-principal">
+                <img class="contenedor foto-perfil" id="foto-perfil" src="./img/foto-perfil.png">
                 <div class="contenedor info-general">
                     <i class="fa-solid fa-laptop icono-botones"></i>
                     <div class="contenedor-txt-botones">
@@ -36,14 +37,15 @@
                     </div>
                     
                 </div>
-                <a href="./docs/Guido-Almeida-CV-2025.pdf" target="_blank" class="contenedor curriculum">
+                <a href="./docs/Guido-Almeida-CV-2025.pdf" target="_blank" class="contenedor curriculum" id="curriculum">
                     <i class="fa-solid fa-file-invoice icono-botones"></i>
                     <h2 class="texto">Curriculum Vitae</h2>
                 </a>
-                <a href="./contacto.html" class="contenedor contacto">
+                <a href="./contacto.html" class="contenedor contacto" id="contacto">
                     <i class="fa-regular fa-address-card icono-botones"></i>
                     <h2 class="texto">Contacto</h2>
                 </a>
+                <!-- APTITUDES -->
                 <div class="contenedor aptitudes">
                     <div class="grupo-botones-grandes__titulo-icono">
                         <h2 class="texto">Aptitudes</h2>
@@ -99,6 +101,7 @@
                     </div>
                         
                 </div>
+                <!-- PROYECTOS -->
                 <div class="contenedor proyectos">
                     <div class="grupo-botones-grandes__titulo-icono">
                         <h2 class="texto">Proyectos</h2>
@@ -122,6 +125,14 @@
                     
                 </div>
             </div>
+
+            <!-- BOTON MODO CLARO/OSCURO -->
+             <span class="boton-modo-claro-oscuro" id="boton-modo-claro-oscuro" title="Modo Claro">
+                <img class="icono-modo-claro" id="img-modo-claro-oscuro" src="./img/icono-sol.png">
+             </span>
+
+             <!--TAG DE JAVASCRIPT-->
+        <script src="./scripts.js"></script>
         </body>
     </html>
 </DOCTYPE>
