@@ -519,6 +519,86 @@ img {
     filter: drop-shadow(0 0 10px #fff);
 }
 
+/* ################ SECCION CONTACTO ##################*/
+
+.seccion_contacto {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: min(5rem, 5%);
+}
+
+.box_contacto {
+    /*max-width: max(120rem, 90%);*/
+    width: 90%;
+    background: var(--color_profesional1);
+    padding: min(2rem, 5%);
+    border-radius: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.5rem + 1.5vw);
+}
+
+.box_contacto p {
+    font-family: var(--font-texto-general);
+    color: #fff;
+    font-size: clamp(1.6rem, 1rem + 2vw, 2.8rem);
+}
+
+.div_email {
+    background: var(--color_personal3);
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.div_email img {
+    max-width: 100%;
+}
+
+.wrapper_boton-copiar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_copiar-email {
+    background: var(--color_personal1);
+    border-radius: 10px;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+
+    color: #fff;
+    font-family: var(--font-items);
+    font-size: calc(1rem + 1vw);
+
+    transition: .5s ease all;
+}
+
+.btn_copiar-email:hover {
+    background: var(--color_profesional3);
+    color: #000;
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+.wrapper_boton-copiar .mensaje-exito {
+    font-family: var(--font-titulos-importantes);
+    color: #08b308;
+    font-size: calc(0.8rem + 2vw);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .5s ease all;
+}
+
+.mensaje-exito.visible {
+    opacity: 1;
+}
+
 
 /* ------------------ EFECTO DE TRANSICION ------------------ */
 

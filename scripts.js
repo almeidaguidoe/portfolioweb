@@ -8,7 +8,7 @@ const botonHome = document.querySelector('.btn_home');
 const botonSobreMi = document.querySelector('.nav_sobre-mi');
 const botonHabilidades = document.querySelector('.nav_habilidades');
 const botonCurriculum = document.querySelectorAll('.nav_curriculum');
-const botonContaco = document.querySelectorAll('.nav_contacto');
+const botonContacto = document.querySelectorAll('.nav_contacto');
 const botonMasItems = document.getElementById('btn_mas-items');
 
 generarHome();
@@ -242,9 +242,9 @@ botonHabilidades.addEventListener('click', generarHabilidades);
 botonCurriculum.forEach(boton => {
     boton.addEventListener('click', generarCurriculum);
 });
-/*
+
 botonContacto.forEach(boton => {
     boton.addEventListener('click', generarContacto);
 });
-*/
+
 botonMasItems.addEventListener('click', mostrarMasItems);
