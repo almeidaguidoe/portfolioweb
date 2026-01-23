@@ -194,8 +194,9 @@ botonHabilidades.addEventListener('click', generarHabilidades);
 botonCurriculum.forEach(boton => {
     boton.addEventListener('click', generarCurriculum);
 });
+/*
 botonContacto.forEach(boton => {
     boton.addEventListener('click', generarContacto);
 });
-
+*/
 botonMasItems.addEventListener('click', mostrarMasItems);
