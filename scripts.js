@@ -179,7 +179,55 @@ function generarCurriculum() {
     }, 1000);
 }
 
-function generarContacto() {}
+function generarContacto() {
+    transicion.classList.remove('oculto');
+    setTimeout(() => {
+        contenedorMain.innerHTML = '';
+        const contenidoContacto = document.createElement('section');
+        contenidoContacto.classList.add('seccion_contacto');
+        contenidoContacto.innerHTML = `
+            <div class="box_contacto">
+                    <p>Si sos recruiter, personal de recursos humanos, o te interesaría 
+                        conversar conmigo acerca de alguna oportunidad o proyecto laboral, 
+                        me encantaría que me escribas. Estoy disponible a escuchar ofertas 
+                        de puestos en empresas a las que podría contribuir y crecer profesionalmente.
+                    </p>
+                    <p><strong>Dirección de email:</strong></p>
+                    <div class="div_email">
+                        <img src="./misc/img_email.png" alt="mi dirección de mail en imagen">
+                    </div>
+                    <div class="wrapper_boton-copiar">
+                        <span class="mensaje-exito" id="copiar-email_msj-exito">Email copiado exitosamente!</span>
+                        <button class="btn_copiar-email" data-email="almeidaguidoe@gmail.com">Copiar email</button>
+                    </div>
+                </div>
+        `;
+
+        contenedorMain.appendChild(contenidoContacto);
+
+        /* Copiado de Email */
+
+        const botonCopiar = document.querySelector('.btn_copiar-email');
+        const mensajeExitoEmail = document.getElementById('copiar-email_msj-exito');
+
+        botonCopiar.addEventListener('click', () => {
+            const email = botonCopiar.dataset.email;
+
+            navigator.clipboard.writeText(email).then(() => {
+                mensajeExitoEmail.classList.add('visible');
+
+                setTimeout(() => {
+                    mensajeExitoEmail.classList.remove('visible');
+                }, 3000);
+            });
+        });
+    }, 500);
+    
+
+    setTimeout(() => {
+        transicion.classList.add('oculto');
+    }, 1000);
+}
 
 function mostrarMasItems() {
     panelLateral.classList.toggle('visible');
