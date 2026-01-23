@@ -1,0 +1,620 @@
+/*
+PALETA DE COLORES:
+
+
+
+MAGENTA DREAM:
+
+#B7094C (cherry rose)
+#A01A58 (dark raspberry)
+#892B64 (royal plum)
+#723C70 (velvet purple)
+#5C4D7D (dusty grape)
+#455E89 (dusk blue)
+#2E6F95 (rich cerulean)
+#1780A1 (cerulean)
+#0091AD (pacific cyan)
+
+
+    --color_personal1: #B7094C;
+    --color_personal2: #A01A58;
+    --color_personal3: #892B64;
+    --color_informativo1: #723C70;
+    --color_informativo2: #5C4D7D;
+    --color_informativo3: #455E89;
+    --color_profesional1: #2E6F95;
+    --color_profesional2: #1780A1;
+    --color_profesional3: #0091AD;
+
+CONCRETE JUNGLE SHADES:
+
+--color_personal1: #1E776D;
+--color_personal2: #017365;
+--color_personal3: #024C42;
+--color_informativo1: #033933;
+--color_informativo2: #141414;
+--color_informativo3: #252525;
+--color_profesional1: #333333;
+--color_profesional2: #4F4F4F;
+--color_profesional3: #696969;
+
+Summer Beach Paradise:
+--color_personal1: #CAF0F8;
+--color_personal2: #ADE8F4;
+--color_personal3: #90E0EF;
+--color_informativo1: #48CAE4;
+--color_informativo2: #00B4D8;
+--color_informativo3: #0096C7;
+--color_profesional1: #0077B6;
+--color_profesional2: #023E8A;
+--color_profesional3: #03045E;
+
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* fuentes */
+
+    --font-titulos-importantes: "Story Script", sans-serif;
+    --font-items: "Oxanium", sans-serif;
+    --font-texto-general: "Alumni Sans Pinstripe", sans-serif;
+
+    /* colores */
+    --color_personal1: #1E776D;
+    --color_personal2: #017365;
+    --color_personal3: #024C42;
+    --color_informativo1: #033933;
+    --color_informativo2: #141414;
+    --color_informativo3: #252525;
+    --color_profesional1: #333333;
+    --color_profesional2: #4F4F4F;
+    --color_profesional3: #696969;
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 10% 1fr;
+    grid-template-areas: 
+    "aside  nav"
+    "aside  main"
+    ;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    transition: .5s ease all;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem;
+}
+
+
+/* CONTENEDORES PRINCIPALES */
+
+.panel-lateral {
+    background: var(--color_informativo2);
+    color: #fff;
+    font-family: var(--font-items);
+    
+
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    height: 100%;
+
+    transition: .5s ease all;
+}
+
+.cont_mi-info {
+    background-color: var(--color_personal3);
+    
+    grid-area: nav;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+}
+
+.cont_main {
+    background: var(--color_informativo3);
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: min(2rem, 2%);
+    
+    overflow-y:auto;
+}
+
+
+/* +++++++++++++++ PANEL LATERAL ++++++++++++++ */
+
+.btn_home {
+    /*background-color: var(--color_personal2);*/
+    height: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline:none;
+    padding: min(1rem, 5%);
+
+    color: #fff;
+    font-family: var(--font-titulos-importantes);
+    font-weight: 100;
+    
+    font-size: clamp(2.2rem, 2vw + 1.5rem, 5rem);
+
+
+    z-index: 10;
+    cursor: pointer;
+
+    background: linear-gradient(
+        45deg,
+        var(--color_informativo1), var(--color_informativo2), var(--color_informativo3),
+        var(--color_informativo2), var(--color_informativo1)
+    );
+    background-size: 600%;
+    animation: animacion-btn-home 20s linear infinite;
+
+    transition: .5s ease all;
+}
+
+.cont_info-secundario {
+    background-color: var(--color_informativo1);
+    padding: min(1.5rem, 5%);
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cont_info-secundario .nav_curriculum,
+.cont_info-secundario .nav_contacto {
+    display: none;
+    text-align: center;
+}
+
+.cont_info-secundario h3 {
+    cursor: pointer;
+    transition: .5s ease all;
+    color: #fff;
+
+    font-family: var(--font-items);
+    font-size: clamp(0.8rem, 1vw + 0.8rem, 3rem);
+}
+
+.cont_info-secundario h3:hover {
+    text-shadow: 0 5px 20px #fff;
+    transform: scale(1.1);
+}
+
+.cont_mis-proyectos {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.box_proy-titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: min(1.5rem, 5%);
+    background: linear-gradient(to bottom, var(--color_informativo1), var(--color_informativo2));
+}
+
+.box_proy-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: min(1.5rem, 5%);
+}
+
+.box_proy-titulo h3 {
+    font-size: calc(1rem + 1vw);
+    margin: 0;
+}
+
+.box_proy-items h4 {
+    cursor: pointer;
+    transition: .5s ease all;
+    font-size: clamp(1rem, 0.8vw + 0.5rem, 2rem);
+    text-align: center;
+}
+
+.box_proy-items h4:hover {
+    text-shadow: 0 5px 20px #fff;
+}
+
+.panel-lateral.visible {
+    transform: translateX(0);
+}
+
+
+
+/* Animación: Botón Home */
+
+.btn_home:hover {
+    background: linear-gradient(
+        45deg,
+        var(--color_personal1), var(--color_informativo1), var(--color_profesional3),
+        var(--color_informativo1), var(--color_personal1)
+    );
+    background-size: 600%;
+    animation: animacion-btn-home 10s linear infinite;
+
+    text-shadow: 0 5px 20px #fff;
+}
+
+@keyframes animacion-btn-home {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+/* +++++++++++++++++++ NAV MI INFO ++++++++++++++++++++++ */
+
+.cont_mi-info h3 {
+    cursor: pointer;
+    transition: .5s ease all;
+    color: #fff;
+
+    font-family: var(--font-items);
+    font-size: clamp(0.8rem, 1vw + 0.8rem, 3rem);
+}
+
+.cont_mi-info h3:hover {
+    text-shadow: 0 5px 20px #fff;
+    transform: scale(1.1);
+}
+
+#btn_mas-items {
+    background: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    display: none;
+    cursor: pointer;
+    transition: .5s ease all;
+    padding: min(1rem, 3%);
+}
+
+#btn_mas-items:hover {
+    text-shadow: 0 5px 20px #fff;
+    transform: scale(1.1);
+}
+
+/* ########## SECCION PRESENTACION ###########*/
+
+.box_presentacion {
+    width: 85%;
+    color: #fff;
+    font-family: var(--font-titulos-importantes);
+    font-size: 8rem;
+    padding: 2rem;
+}
+
+.box_presentacion h1 {
+    font-size: 1em;
+}
+
+.box_presentacion h2 {
+    font-size: 0.6em;
+}
+
+.box_presentacion p {
+    font-size: 0.4em;
+}
+
+/* ########## SECCION SOBRE MI ########## */
+
+.seccion_sobre-mi {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 0.5rem;
+}
+
+.box_sobre-mi {
+    background-color: var(--color_informativo1);
+    max-width: max(22.5rem, 85%);
+    border-radius: 25px;
+    padding: min(2rem, 5%);
+    position: relative;
+}
+
+.seccion_sobre-mi img {
+    width: max(12rem, 30%);
+    float: left;
+    border-radius: 50%;
+
+    
+    shape-outside: circle(50% at 10% 10%);
+    transform: translate(-40%, -40%);
+}
+
+.seccion_sobre-mi p {
+    font-family: var(--font-texto-general);
+    color: #fff;
+    font-size: clamp(1.4rem, 1rem + 2vw, 2.8rem);
+}
+
+
+/* ################ SECCION HABILIDADES ##################*/
+
+/* DISEÑOS GENERALES */
+
+.seccion_habilidades {
+    display: flex;
+    flex-flow: row wrap;
+    gap: min(1rem, 2%);
+    padding: min(1rem, 2%);
+    width: 100%;
+    height: 100%;
+}
+
+.seccion_habilidades img {
+    transition: .5s ease all;
+}
+
+.box_habilidades {
+    background: var(--color_profesional1);
+    flex: 1;
+    min-width: min(18rem, 100%);
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: min(1rem, 5%);
+
+    overflow: hidden;
+    
+    position: relative;
+
+    font-family: var(--font-texto-general);
+
+    color: #fff;
+
+    border-radius: 25px;
+    padding: min(1.5rem, 6%);
+
+    transition: .5s ease all;
+}
+
+
+.img_logos_habil {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(180%);
+
+    max-height: 70%;
+    opacity: 0;
+}
+
+.img_logos_habil.verde {
+
+    opacity: 1;
+}
+
+.box_habilidades h5 {
+    font-size: clamp(2.5rem, 2rem + 1vw, 4rem);
+    position: absolute;
+    top: 20%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    transition: .5s ease all;
+
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.box_habilidades:hover .img_logos_habil {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.box_habilidades:hover .img_logos_habil.verde {
+    opacity: 0;
+}
+
+.box_habilidades:hover h5 {
+    top: 90%;
+}
+
+.box_habilidades:hover {
+    background: var(--color_informativo1);
+}
+
+.box_habilidades h5 {
+    font-style: italic;
+    z-index: 5;
+}
+
+/* ################ SECCION CURRICULUM ##################*/
+
+.seccion_curriculum {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--color_profesional1);
+    padding: min(1rem, 4%);
+    border-radius: 25px;
+}
+
+.seccion_curriculum iframe {
+    border: none;
+    width: 100%;
+    flex: 1;
+
+    border-radius: 10px;
+}
+
+.seccion_curriculum .wrapper_botones {
+    height: min-content;
+    padding: min(2rem, 5%);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 1rem;
+
+}
+
+.seccion_curriculum .wrapper_botones a {
+    text-decoration: none;
+    background: var(--color_personal1);
+    color: #fff;
+    font-family: var(--font-items);
+    font-size: clamp(1rem, 1rem + 1vw, 3rem);
+
+    border-radius: 25px;
+    padding: min(1rem, 4%) min(2rem, 6%);
+    text-align: center;
+
+    transition: .5s ease all;
+}
+
+.seccion_curriculum .wrapper_botones a:hover {
+    background: var(--color_profesional3);
+    color: #000;
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+
+/* ------------------ EFECTO DE TRANSICION ------------------ */
+
+.transicion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background: var(--color_informativo1);
+    transition: .5s ease all;
+}
+
+.oculto {
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
+/* ####################### MEDIA QUERIES ####################### */
+
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 8% 1fr;
+        grid-template-areas: 
+        "nav"
+        "main"
+        ;
+
+    }
+
+    .panel-lateral {
+        position: absolute;
+        top: 8%;
+        transform: translateX(-100%);
+        height: 92%;
+    }
+
+    #btn_mas-items {
+        display: block;
+    }
+
+    .seccion_habilidades {
+        grid-auto-columns: 1fr;
+        grid-auto-rows: 1fr;
+        grid-template-areas:
+        "hcj hcj sql "
+        "off off vgp"
+        "isv isv vgp";
+    }
+}
+
+@media (max-width: 768px) {
+    .cont_mi-info .nav_contacto {
+        display: none;
+    }
+
+    .cont_info-secundario {
+        display: flex;
+    }
+
+    .cont_info-secundario .nav_contacto {
+        display: block;
+    }
+
+    .img_logos_hcj {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 425px) {
+    .cont_mi-info .nav_curriculum {
+        display: none;
+    }
+
+    .cont_info-secundario .nav_curriculum {
+        display: block;
+    }
+
+    .seccion_habilidades {
+        grid-auto-columns: 1fr;
+        grid-auto-rows: 1fr;
+        grid-template-areas:
+        "hcj"
+        "sql"
+        "off"
+        "vgp"
+        "isv";
+    }
+}
+
+@media (max-width: 320px) {
+    .img_logos_hcj {
+        max-width: 40%;
+    }
+}
