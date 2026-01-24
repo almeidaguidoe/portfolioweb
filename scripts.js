@@ -17,10 +17,11 @@ generarHome();
 
 function generarHome() {
     transicion.classList.remove('oculto');
+    limpiarEfectosDeSeleccionNavs();
     setTimeout(() => {
         contenedorMain.innerHTML = '';
         const contenidoHome = document.createElement('div');
-        contenidoHome.classList.add('box_presentacion');
+        contenidoHome.classList.add('seccion_presentacion');
         contenidoHome.innerHTML = `
             <h1>Portfolio de Guido Almeida</h1>
             <h2>Programador web</h2>
@@ -38,6 +39,9 @@ function generarHome() {
 
 function generarSobreMi() {
     transicion.classList.remove('oculto');
+    limpiarEfectosDeSeleccionNavs();
+    botonSobreMi.classList.add('seleccionada');
+
     setTimeout(() => {
         contenedorMain.innerHTML = '';
         const contenidoSobreMi = document.createElement('section');
@@ -68,6 +72,8 @@ function generarSobreMi() {
 
 function generarHabilidades() {
     transicion.classList.remove('oculto');
+    limpiarEfectosDeSeleccionNavs();
+    botonHabilidades.classList.add('seleccionada');
     setTimeout(() => {
         contenedorMain.innerHTML = '';
         const contenidoHabilidades = document.createElement('section');
@@ -148,8 +154,12 @@ function generarHabilidades() {
 }
 
 function generarCurriculum() {
-    console.log('Se entró a la función de generar');
     transicion.classList.remove('oculto');
+    limpiarEfectosDeSeleccionNavs();
+    botonCurriculum.forEach(boton => {
+        boton.classList.add('seleccionada');
+    });
+    
     setTimeout(() => {
         contenedorMain.innerHTML = '';
         const contenidoCurriculum = document.createElement('section');
@@ -181,6 +191,10 @@ function generarCurriculum() {
 
 function generarContacto() {
     transicion.classList.remove('oculto');
+    limpiarEfectosDeSeleccionNavs();
+    botonContacto.forEach(boton => {
+        boton.classList.add('seleccionada');
+    });
     setTimeout(() => {
         contenedorMain.innerHTML = '';
         const contenidoContacto = document.createElement('section');
@@ -236,7 +250,7 @@ function mostrarMasItems() {
 
 
 /* Eventos de navegación */
-botonHome.addEventListener('click', generarHome);
+//botonHome.addEventListener('click', generarHome);
 botonSobreMi.addEventListener('click', generarSobreMi);
 botonHabilidades.addEventListener('click', generarHabilidades);
 botonCurriculum.forEach(boton => {
@@ -248,3 +262,12 @@ botonContacto.forEach(boton => {
 });
 
 botonMasItems.addEventListener('click', mostrarMasItems);
+
+/* Efectos visuales */
+
+function limpiarEfectosDeSeleccionNavs() {
+    const otrosBotones = document.querySelectorAll('.nav_item');
+    otrosBotones.forEach(boton => {
+        boton.classList.remove('seleccionada');
+    })
+}

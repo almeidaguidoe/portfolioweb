@@ -82,13 +82,8 @@ html {
 }
 
 body {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 10% 1fr;
-    grid-template-areas: 
-    "aside  nav"
-    "aside  main"
-    ;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
@@ -109,6 +104,7 @@ img {
 
 /* CONTENEDORES PRINCIPALES */
 
+/*
 .panel-lateral {
     background: var(--color_informativo2);
     color: #fff;
@@ -123,11 +119,13 @@ img {
 
     transition: .5s ease all;
 }
+*/
 
-.cont_mi-info {
+.cont_nav {
     background-color: var(--color_personal3);
     
-    grid-area: nav;
+    width: 100%;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -137,7 +135,8 @@ img {
 
 .cont_main {
     background: var(--color_informativo3);
-    grid-area: main;
+    
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,9 +149,8 @@ img {
 
 
 /* +++++++++++++++ PANEL LATERAL ++++++++++++++ */
-
+/*
 .btn_home {
-    /*background-color: var(--color_personal2);*/
     height: 10%;
 
     display: flex;
@@ -255,7 +253,7 @@ img {
 .panel-lateral.visible {
     transform: translateX(0);
 }
-
+*/
 
 
 /* Animación: Botón Home */
@@ -280,16 +278,28 @@ img {
 
 /* +++++++++++++++++++ NAV MI INFO ++++++++++++++++++++++ */
 
-.cont_mi-info h3 {
+.nav_item {
     cursor: pointer;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: min(1.5rem, 5%) min(3rem, 3%);
+
+}
+
+.nav_item h3 {
     transition: .5s ease all;
     color: #fff;
 
+    z-index: 5;
+
     font-family: var(--font-items);
     font-size: clamp(0.8rem, 1vw + 0.8rem, 3rem);
+    text-align: center;
 }
 
-.cont_mi-info h3:hover {
+.nav_item:hover h3 {
     text-shadow: 0 5px 20px #fff;
     transform: scale(1.1);
 }
@@ -313,7 +323,7 @@ img {
 
 /* ########## SECCION PRESENTACION ###########*/
 
-.box_presentacion {
+.seccion_presentacion {
     width: 85%;
     color: #fff;
     font-family: var(--font-titulos-importantes);
@@ -321,15 +331,15 @@ img {
     padding: 2rem;
 }
 
-.box_presentacion h1 {
+.seccion_presentacion h1 {
     font-size: 1em;
 }
 
-.box_presentacion h2 {
+.seccion_presentacion h2 {
     font-size: 0.6em;
 }
 
-.box_presentacion p {
+.seccion_presentacion p {
     font-size: 0.4em;
 }
 
@@ -531,8 +541,7 @@ img {
 }
 
 .box_contacto {
-    /*max-width: max(120rem, 90%);*/
-    width: 90%;
+    max-width: max(120rem, 90%);
     background: var(--color_profesional1);
     padding: min(2rem, 5%);
     border-radius: 25px;
@@ -597,6 +606,37 @@ img {
 
 .mensaje-exito.visible {
     opacity: 1;
+}
+/* ------------------ EFECTO DE SECCIÓN SELECCIONADA ------------------ */
+
+.seleccionada {
+    position: relative;
+    
+    background: linear-gradient(to right, 
+        var(--color_informativo1), var(--color_personal1), var(--color_informativo1));
+    
+    animation: animacion-seccion-seleccionada 10s linear infinite;
+
+    background-size: 400%;
+}
+
+@keyframes animacion-seccion-seleccionada {
+    0% {background-position: 0 0;}
+    50% {background-position: 200% 0;}
+    100% {background-position: 0 0;}
+}
+
+.seleccionada:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right, var(--color_personal3) 0.1%, 
+        rgba(0, 0, 0, 0), 
+        var(--color_personal3) 99.9%);
 }
 
 
