@@ -79,6 +79,7 @@ Summer Beach Paradise:
 
 html {
     height: 100%;
+    background: var(--color_informativo3);
 }
 
 body {
@@ -128,7 +129,7 @@ img {
 
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     z-index: 10;
 }
@@ -140,6 +141,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     height: 100%;
     width: 100%;
     padding: min(2rem, 2%);
@@ -148,10 +150,14 @@ img {
 }
 
 
-/* +++++++++++++++ PANEL LATERAL ++++++++++++++ */
-/*
+
+
+
+
+/* +++++++++++++++++++ NAV ++++++++++++++++++++++ */
+
 .btn_home {
-    height: 10%;
+    height: 100%;
 
     display: flex;
     align-items: center;
@@ -182,80 +188,6 @@ img {
     transition: .5s ease all;
 }
 
-.cont_info-secundario {
-    background-color: var(--color_informativo1);
-    padding: min(1.5rem, 5%);
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.cont_info-secundario .nav_curriculum,
-.cont_info-secundario .nav_contacto {
-    display: none;
-    text-align: center;
-}
-
-.cont_info-secundario h3 {
-    cursor: pointer;
-    transition: .5s ease all;
-    color: #fff;
-
-    font-family: var(--font-items);
-    font-size: clamp(0.8rem, 1vw + 0.8rem, 3rem);
-}
-
-.cont_info-secundario h3:hover {
-    text-shadow: 0 5px 20px #fff;
-    transform: scale(1.1);
-}
-
-.cont_mis-proyectos {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.box_proy-titulo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: min(1.5rem, 5%);
-    background: linear-gradient(to bottom, var(--color_informativo1), var(--color_informativo2));
-}
-
-.box_proy-items {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: min(1.5rem, 5%);
-}
-
-.box_proy-titulo h3 {
-    font-size: calc(1rem + 1vw);
-    margin: 0;
-}
-
-.box_proy-items h4 {
-    cursor: pointer;
-    transition: .5s ease all;
-    font-size: clamp(1rem, 0.8vw + 0.5rem, 2rem);
-    text-align: center;
-}
-
-.box_proy-items h4:hover {
-    text-shadow: 0 5px 20px #fff;
-}
-
-.panel-lateral.visible {
-    transform: translateX(0);
-}
-*/
-
-
 /* Animación: Botón Home */
 
 .btn_home:hover {
@@ -276,7 +208,26 @@ img {
     100% {background-position: 0 0;}
 }
 
-/* +++++++++++++++++++ NAV MI INFO ++++++++++++++++++++++ */
+#btn_mas-items {
+    background: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    display: none;
+    cursor: pointer;
+    transition: .5s ease all;
+    padding: min(1rem, 3%);
+}
+
+#btn_mas-items:hover {
+    text-shadow: 0 5px 20px #fff;
+    transform: scale(1.1);
+}
+
+#btn_mas-items i {
+    transition: .5s ease all;
+}
 
 .nav_item {
     cursor: pointer;
@@ -304,21 +255,31 @@ img {
     transform: scale(1.1);
 }
 
-#btn_mas-items {
-    background: none;
-    outline: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
+
+
+/* +++++++++++++++ NAV SECUNDARIO ++++++++++++++ */
+
+.cont_nav-secundario {
     display: none;
-    cursor: pointer;
+    flex-direction: row;
+    justify-content: space-around;
+
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+
+
+    background: var(--color_personal3);
+
     transition: .5s ease all;
-    padding: min(1rem, 3%);
 }
 
-#btn_mas-items:hover {
-    text-shadow: 0 5px 20px #fff;
-    transform: scale(1.1);
+.cont_nav-secundario.visible {
+    max-height: 5rem;
+    opacity: 1;
 }
 
 /* ########## SECCION PRESENTACION ###########*/
@@ -595,9 +556,10 @@ img {
 }
 
 .wrapper_boton-copiar .mensaje-exito {
-    font-family: var(--font-titulos-importantes);
+    font-family: var(--font-texto-general);
     color: #08b308;
     font-size: calc(0.8rem + 2vw);
+    font-weight: 800;
     opacity: 0;
     pointer-events: none;
 
@@ -634,9 +596,10 @@ img {
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        to right, var(--color_personal3) 0.1%, 
-        rgba(0, 0, 0, 0), 
-        var(--color_personal3) 99.9%);
+        to right, var(--color_personal3) 5%, 
+        rgba(0, 0, 0, 0) 20%, 
+        rgba(0, 0, 0, 0) 80%, 
+        var(--color_personal3) 95%);
 }
 
 
@@ -662,44 +625,22 @@ img {
 
 /* ####################### MEDIA QUERIES ####################### */
 
-@media (max-width: 1024px) {
-    body {
-        grid-template-columns: 1fr;
-        grid-template-rows: 8% 1fr;
-        grid-template-areas: 
-        "nav"
-        "main"
-        ;
 
-    }
-
-    .panel-lateral {
-        position: absolute;
-        top: 8%;
-        transform: translateX(-100%);
-        height: 92%;
-    }
+@media (max-width: 768px) {
 
     #btn_mas-items {
         display: block;
     }
 
-    .seccion_habilidades {
-        grid-auto-columns: 1fr;
-        grid-auto-rows: 1fr;
-        grid-template-areas:
-        "hcj hcj sql "
-        "off off vgp"
-        "isv isv vgp";
-    }
-}
-
-@media (max-width: 768px) {
-    .cont_mi-info .nav_contacto {
+    .cont_nav .nav_contacto {
         display: none;
     }
 
-    .cont_info-secundario {
+    .cont_nav .nav_curriculum {
+        display: none;
+    }
+
+    .cont_nav-secundario {
         display: flex;
     }
 
@@ -707,30 +648,14 @@ img {
         display: block;
     }
 
-    .img_logos_hcj {
-        max-width: 50%;
+    .cont_info-secundario .nav_curriculum {
+        display: block;
     }
 }
 
 @media (max-width: 425px) {
-    .cont_mi-info .nav_curriculum {
-        display: none;
-    }
 
-    .cont_info-secundario .nav_curriculum {
-        display: block;
-    }
 
-    .seccion_habilidades {
-        grid-auto-columns: 1fr;
-        grid-auto-rows: 1fr;
-        grid-template-areas:
-        "hcj"
-        "sql"
-        "off"
-        "vgp"
-        "isv";
-    }
 }
 
 @media (max-width: 320px) {

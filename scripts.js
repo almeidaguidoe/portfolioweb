@@ -1,5 +1,5 @@
 const contenedorMain = document.querySelector('.cont_main');
-const panelLateral = document.querySelector('.panel-lateral');
+const navSecundario = document.querySelector('.cont_nav-secundario');
 const transicion = document.querySelector('.transicion');
 
 /* BOTONES NAVEGACIÓN */
@@ -244,13 +244,19 @@ function generarContacto() {
 }
 
 function mostrarMasItems() {
-    panelLateral.classList.toggle('visible');
+    console.log(botonMasItems.firstElementChild);
+    if(botonMasItems.firstElementChild.classList.contains('fa-bars')) {
+        botonMasItems.firstElementChild.classList.replace('fa-bars', 'fa-angle-up');
+    } else {
+        botonMasItems.firstElementChild.classList.replace('fa-angle-up', 'fa-bars');
+    }
+    navSecundario.classList.toggle('visible');
 }
 
 
 
 /* Eventos de navegación */
-//botonHome.addEventListener('click', generarHome);
+botonHome.addEventListener('click', generarHome);
 botonSobreMi.addEventListener('click', generarSobreMi);
 botonHabilidades.addEventListener('click', generarHabilidades);
 botonCurriculum.forEach(boton => {
