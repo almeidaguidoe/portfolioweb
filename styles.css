@@ -439,7 +439,184 @@ img {
     z-index: 5;
 }
 
-/* ################ SECCION CURRICULUM ##################*/
+/* ######################### SECCION PROYECTOS ###########################*/
+
+.seccion_proyectos {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    gap: 1rem;
+}
+
+.box_proyecto {
+    /*border: 2px solid blue;*/
+    height: 100%;
+    flex: 1;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: min(2rem, 5%);
+}
+
+/* efecto de sombra superior e inferior */
+.box_proyecto::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        #000 1%, 
+        rgba(0, 0, 0, 0.8) 10%, 
+        rgba(0, 0, 0, 0.3) 25%, 
+        rgba(0, 0, 0, 0.3) 75%,
+        rgba(0, 0, 0, 0.8) 90%,
+        #000 99%);
+
+    transition: .5s ease all;
+}
+
+.box_proyecto h4 {
+    position: relative;
+    font-size: clamp(1rem, 1rem + 1.5vw, 5rem);
+    color: #fff;
+    font-family: var(--font-items);
+    text-align:center;
+
+    z-index: 5;
+}
+
+.box_proyecto.gta {
+    background-image: 
+        
+        url('./img/proy_gta.png');
+    background-size: cover;
+}
+
+.box_proyecto.biblio {
+
+}
+
+.box_proyecto.memotest {
+    
+}
+
+.box_proyecto .wrapper_tecnologias {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: min(2rem, 5%);
+    z-index: 5;
+}
+
+.wrapper_tecnologias .wrapper_logo-nombre {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.wrapper_tecnologias .wrapper_logo-nombre img {
+    max-height: 70%;
+    object-fit: contain;
+}
+
+.wrapper_tecnologias .wrapper_logo-nombre span {
+    color: #fff;
+    font-family: var(--font-items);
+    text-align: center;
+    font-size: clamp(0.8rem, 0.8rem + 0.4vw, 3rem);
+}
+
+/* ----- elementos de hover ----- */
+
+/* fondo verde que aparece en hover */
+.box_proyecto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color_informativo2);
+
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+
+.box_proyecto:hover::before {
+    opacity: 0.85;
+}
+
+.box_proyecto p {
+    color: #fff;
+    font-family: var(--font-texto-general);
+    font-size: calc(0.8rem + 1vw);
+    z-index: 5;
+
+    opacity: 0;
+    transition: .5s ease opacity;
+}
+
+.box_proyecto:hover p {
+
+    opacity: 1;
+}
+
+.box_proyecto .wrapper_botones {
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: min(1.5rem, 5%);
+
+    opacity: 0;
+    transition: .5s ease opacity;
+}
+
+.box_proyecto .wrapper_botones a {
+    background: var(--color_personal1);
+    border-radius: 15px;
+    font-family: var(--font-items);
+    font-weight: 600;
+    font-size: calc(0.8rem + 0.5vw);
+    color: #fff;
+    text-decoration: none;
+
+    padding: min(0.8rem, 2%);
+    cursor: pointer;
+    transition: .5s ease all;
+
+    
+}
+
+.box_proyecto .wrapper_botones a:hover {
+    background: var(--color_profesional3);
+    color: #000;
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+.box_proyecto:hover .wrapper_botones {
+
+    opacity: 1;
+}
+
+.box_proyecto.gta:hover {
+    background-image: url('./img/proy_gta_blur.png');
+}
+
+/* ######################## SECCION CURRICULUM ############################*/
 
 .seccion_curriculum {
     width: 100%;
@@ -653,8 +830,14 @@ img {
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
+    .cont_nav .nav_proyectos {
+        display: none;
+    }
 
+    .cont_info-secundario .nav_proyectos {
+        display: block;
+    }
 
 }
 

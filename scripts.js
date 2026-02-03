@@ -11,7 +11,7 @@ const botonCurriculum = document.querySelectorAll('.nav_curriculum');
 const botonContacto = document.querySelectorAll('.nav_contacto');
 const botonMasItems = document.getElementById('btn_mas-items');
 
-generarHome();
+//generarHome();
 
 /* Generación de Secciones */
 
