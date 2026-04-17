@@ -499,12 +499,18 @@ img {
     background-size: cover;
 }
 
-.box_proyecto.biblio {
-
+.box_proyecto.bingo-maker {
+    background-image: 
+        
+        url('./img/proy_bingo-maker.png');
+    background-size: cover;
 }
 
 .box_proyecto.memotest {
-    
+    background-image: 
+        
+        url('./img/proy_memotest.png');
+    background-size: cover;
 }
 
 .box_proyecto .wrapper_tecnologias {
@@ -614,6 +620,14 @@ img {
 
 .box_proyecto.gta:hover {
     background-image: url('./img/proy_gta_blur.png');
+}
+
+.box_proyecto.bingo-maker:hover {
+    background-image: url('./img/proy_bingo-maker_blur.png');
+}
+
+.box_proyecto.memotest:hover {
+    background-image: url('./img/proy_memotest_blur.png');
 }
 
 /* ######################## SECCION CURRICULUM ############################*/

@@ -7,6 +7,7 @@ const transicion = document.querySelector('.transicion');
 const botonHome = document.querySelector('.btn_home');
 const botonSobreMi = document.querySelector('.nav_sobre-mi');
 const botonHabilidades = document.querySelector('.nav_habilidades');
+const botonProyectos = document.querySelector('.nav_proyectos')
 const botonCurriculum = document.querySelectorAll('.nav_curriculum');
 const botonContacto = document.querySelectorAll('.nav_contacto');
 const botonMasItems = document.getElementById('btn_mas-items');
@@ -243,6 +244,108 @@ function generarContacto() {
     }, 1000);
 }
 
+function generarProyectos() {
+    transicion.classList.remove('oculto');
+    limpiarEfectosDeSeleccionNavs();
+    botonProyectos.classList.add('seleccionada');
+    setTimeout(() => {
+        contenedorMain.innerHTML = '';
+        const contenidoProyectos = document.createElement('section');
+        contenidoProyectos.classList.add('seccion_proyectos');
+        contenidoProyectos.innerHTML = `
+            <div class="box_proyecto gta">
+                    <h4>GTA CoffeTV</h4>
+                    <p>Página con diferentes secciones mostrando un videojuego que hice para el streamer 
+                        <a>Coffe TV</a>. Desarrollados con CSS y Javascript, hay reproductores de audio y video,
+                        una galería de imágenes y artículos de texto. Todo con un diseño responsive y 
+                        visualmente coherente.
+                    </p>
+                    <div class="wrapper_botones">
+                        <a href="https://almeidaguidoe.github.io/gtacoffetv/" target="_blank">Visitar página</a>
+                        <a href="https://github.com/almeidaguidoe/gtacoffetv" target="_blank">Ver en GitHub</a>
+                    </div>
+                    <div class="wrapper_tecnologias">
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_html_lr.png">
+                            <span>HTML</span>
+                        </div>
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_css_lr.png">
+                            <span>CSS</span>
+                        </div>
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_javascript_lr.png">
+                            <span>Javascript</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="box_proyecto bingo-maker">
+                    <h4>Bingo Maker</h4>
+                    <p>Aplicación web para jugar al Bingo con varios jugadores desde un único dispositivo, ya sea 
+                        computadora, tablet o celular. Está pensado 
+                        para practicar vocabulario en inglés durante una clase online. Desarrollado con HTML, CSS y Javascript, 
+                        tiene animaciones, un diseño visualmente atractivo y coherente, y es muy fácil de usar.
+                    </p>
+                    <div class="wrapper_botones">
+                        <a href="https://almeidaguidoe.github.io/bingo-maker/index.html" target="_blank">Visitar página</a>
+                        <a href="https://github.com/almeidaguidoe/bingo-maker" target="_blank">Ver en GitHub</a>
+                    </div>
+                    <div class="wrapper_tecnologias">
+                        
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_html_lr.png">
+                            <span>HTML</span>
+                        </div>
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_css_lr.png">
+                            <span>CSS</span>
+                        </div>
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_javascript_lr.png">
+                            <span>Javascript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_proyecto memotest">
+                    <h4>Memo-Test</h4>
+                    <p>Juego sencillo de memo-test con animales en inglés. Tiene toda la lógica de las fichas y 
+                        el puntaje hecha con Javascript, repartiendo las fichas aleatoriamente en cada partida, 
+                        sumando los puntos y reiniciando la partida si los jugadores lo desean. 
+                    </p>
+                    <div class="wrapper_botones">
+                        <a href="https://almeidaguidoe.github.io/memotest-animals/" target="_blank">Visitar página</a>
+                        <a href="https://github.com/almeidaguidoe/memotest-animals" target="_blank">Ver en GitHub</a>
+                    </div>
+                    <div class="wrapper_tecnologias">
+                        
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_html_lr.png">
+                            <span>HTML</span>
+                        </div>
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_css_lr.png">
+                            <span>CSS</span>
+                        </div>
+                        <div class="wrapper_logo-nombre">
+                            <img src="./img/habil_javascript_lr.png">
+                            <span>Javascript</span>
+                        </div>
+
+                    </div>
+                </div>
+        `;
+
+        contenedorMain.appendChild(contenidoProyectos);
+
+    }, 500);
+    
+
+    setTimeout(() => {
+        transicion.classList.add('oculto');
+    }, 1000);
+}
+
 function mostrarMasItems() {
     console.log(botonMasItems.firstElementChild);
     if(botonMasItems.firstElementChild.classList.contains('fa-bars')) {
@@ -267,6 +370,7 @@ botonContacto.forEach(boton => {
     boton.addEventListener('click', generarContacto);
 });
 
+botonProyectos.addEventListener('click', generarProyectos);
 botonMasItems.addEventListener('click', mostrarMasItems);
 
 /* Efectos visuales */
