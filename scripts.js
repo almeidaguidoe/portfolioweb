@@ -12,7 +12,7 @@ const botonCurriculum = document.querySelectorAll('.nav_curriculum');
 const botonContacto = document.querySelectorAll('.nav_contacto');
 const botonMasItems = document.getElementById('btn_mas-items');
 
-//generarHome();
+generarHome();
 
 /* Generación de Secciones */
 
@@ -255,9 +255,9 @@ function generarProyectos() {
         contenidoProyectos.innerHTML = `
             <div class="box_proyecto gta">
                     <h4>GTA CoffeTV</h4>
-                    <p>Página con diferentes secciones mostrando un videojuego que hice para el streamer 
-                        <a>Coffe TV</a>. Desarrollados con CSS y Javascript, hay reproductores de audio y video,
-                        una galería de imágenes y artículos de texto. Todo con un diseño responsive y 
+                    <p>Página con diferentes secciones mostrando un videojuego que hice para el youtuber y streamer 
+                        <a href="https://www.youtube.com/@CoffeTV" target="_blank">Coffe TV</a>. Desarrollados con CSS y Javascript, hay <strong>reproductores de audio y video</strong>,
+                        una <strong>galería de imágenes</strong> y artículos de texto. Todo con un diseño responsive y 
                         visualmente coherente.
                     </p>
                     <div class="wrapper_botones">
@@ -285,7 +285,7 @@ function generarProyectos() {
                     <p>Aplicación web para jugar al Bingo con varios jugadores desde un único dispositivo, ya sea 
                         computadora, tablet o celular. Está pensado 
                         para practicar vocabulario en inglés durante una clase online. Desarrollado con HTML, CSS y Javascript, 
-                        tiene animaciones, un diseño visualmente atractivo y coherente, y es muy fácil de usar.
+                        tiene <strong>animaciones</strong>, un diseño visualmente atractivo y coherente, y es muy fácil de usar.
                     </p>
                     <div class="wrapper_botones">
                         <a href="https://almeidaguidoe.github.io/bingo-maker/index.html" target="_blank">Visitar página</a>
